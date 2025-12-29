@@ -414,6 +414,12 @@ h3 {
   border-top-left-radius: 0;
   border-bottom-left-radius: 0;
 }
+.formulario__texto {
+  margin-top: 3rem;
+}
+.formulario__imagen {
+  max-width: 28rem;
+}
 .formulario__listado {
   margin: 0;
   padding: 0;
@@ -430,6 +436,7 @@ h3 {
   font-size: 1.4rem;
   color: #FFFFFF;
   font-weight: 700;
+  cursor: pointer;
 }
 .formulario__submit {
   background-color: #007df4;
