@@ -35,6 +35,44 @@ Base de Datos
     PRIMARY KEY (`id`)
     ) ENGINE=InnoDB AUTO_INCREMENT=1 DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
 
+    CREATE TABLE `categorias` (
+    `id` int NOT NULL AUTO_INCREMENT,
+    `nombre` varchar(45) DEFAULT NULL,
+    PRIMARY KEY (`id`)
+    ) ENGINE=InnoDB AUTO_INCREMENT=1 DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
+
+    CREATE TABLE `dias` (
+    `id` int NOT NULL AUTO_INCREMENT,
+    `nombre` varchar(15) DEFAULT NULL,
+    PRIMARY KEY (`id`)
+    ) ENGINE=InnoDB AUTO_INCREMENT=1 DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
+
+    CREATE TABLE `horas` (
+    `id` int NOT NULL AUTO_INCREMENT,
+    `hora` varchar(13) CHARACTER SET utf8 COLLATE utf8_general_ci DEFAULT NULL,
+    PRIMARY KEY (`id`)
+    ) ENGINE=InnoDB AUTO_INCREMENT=1 DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
+
+    CREATE TABLE `eventos` (
+    `id` int NOT NULL AUTO_INCREMENT,
+    `nombre` varchar(120) CHARACTER SET utf8 COLLATE utf8_general_ci DEFAULT NULL,
+    `descripcion` text,
+    `disponibles` int DEFAULT NULL,
+    `categoria_id` int NOT NULL,
+    `dia_id` int NOT NULL,
+    `hora_id` int NOT NULL,
+    `ponente_id` int NOT NULL,
+    PRIMARY KEY (`id`),
+    KEY `fk_eventos_categorias_idx` (`categoria_id`),
+    KEY `fk_eventos_dias1_idx` (`dia_id`),
+    KEY `fk_eventos_horas1_idx` (`hora_id`),
+    KEY `fk_eventos_ponentes1_idx` (`ponente_id`),
+    CONSTRAINT `fk_eventos_categorias` FOREIGN KEY (`categoria_id`) REFERENCES `categorias` (`id`),
+    CONSTRAINT `fk_eventos_dias1` FOREIGN KEY (`dia_id`) REFERENCES `dias` (`id`),
+    CONSTRAINT `fk_eventos_horas1` FOREIGN KEY (`hora_id`) REFERENCES `horas` (`id`),
+    CONSTRAINT `fk_eventos_ponentes1` FOREIGN KEY (`ponente_id`) REFERENCES `ponentes` (`id`)
+    ) ENGINE=InnoDB AUTO_INCREMENT=1 DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
+
     INSERT INTO `ponentes` (`id`, `nombre`, `apellido`, `ciudad`, `pais`, `imagen`, `tags`, `redes`) VALUES
     (1, ' Julian', 'Muñoz', 'Madrid', 'España', '6764a74ccf2b4b5b74e333016c13388a', 'React,PHP,Laravel', '{\"facebook\":\"https://facebook.com/C%C3%B3digo-Con-Juan-103341632130628\",\"twitter\":\"https://twitter.com/codigoconjuan\",\"youtube\":\"\",\"instagram\":\"https://instagram.com/codigoconjuan\",\"tiktok\":\"\",\"github\":\"https://github.com/codigoconjuan\"}'),
     (2, ' Israel', 'González', 'CDMX', 'México', '6497c66bcc464e26871c046dd5bb86c8', 'Vue,Node.js,MongoDB', '{\"facebook\":\"\",\"twitter\":\"\",\"youtube\":\"https://youtube.com/codigoconjuan\",\"instagram\":\"https://instagram.com/codigoconjuan\",\"tiktok\":\"https://tiktok.com/@codigoconjuan\",\"github\":\"https://github.com/codigoconjuan\"}'),
@@ -54,6 +92,24 @@ Base de Datos
     (16, ' Julián ', 'Noboa', 'Las Vegas', 'EU', '6d4629dacbed2e4f5a344282ec2f4f76', 'iOS,Figma,REST API\'s', '{\"facebook\":\"\",\"twitter\":\"\",\"youtube\":\"https://youtube.com/codigoconjuan\",\"instagram\":\"https://instagram.com/codigoconjuan\",\"tiktok\":\"https://tiktok.com/@codigoconjuan\",\"github\":\"https://github.com/codigoconjuan\"}'),
     (17, ' Vicente ', 'Figueroa', 'CDMX', 'México', '2a41a781d8ae8f0f7a1969c766276b08', 'React,Tailwind,JavaScript,TypeScript,Node', '{\"facebook\":\"https://facebook.com/C%C3%B3digo-Con-Juan-103341632130628\",\"twitter\":\"https://twitter.com/codigoconjuan\",\"youtube\":\"https://youtube.com/codigoconjuan\",\"instagram\":\"\",\"tiktok\":\"\",\"github\":\"\"}'),
     (18, ' Nico ', 'Fraga', 'Buenos Aires', 'Argentina', '222dc6502643afa2f4a55acaecd93221', 'PHP,Laravel,Flutter,React Native', '{\"facebook\":\"https://facebook.com/C%C3%B3digo-Con-Juan-103341632130628\",\"twitter\":\"https://twitter.com/codigoconjuan\",\"youtube\":\"https://youtube.com/codigoconjuan\",\"instagram\":\"\",\"tiktok\":\"\",\"github\":\"\"}');
+
+    INSERT INTO `horas` (`id`, `hora`) VALUES
+    (1, '10:00 - 10:55'),
+    (2, '11:00 - 11:55'),
+    (3, '12:00 - 12:55'),
+    (4, '13:00 - 13:55'),
+    (5, '16:00 - 16:55'),
+    (6, '17:00 - 17:55'),
+    (7, '18:00 - 18:55'),
+    (8, '19:00 - 19:55');
+
+    INSERT INTO dias (nombre) VALUES
+	('Viernes'),
+	('Sabado');
+
+    INSERT INTO categorias (nombre) VALUES
+	('Conferencias'),
+	('Workshops');
    
 
     
