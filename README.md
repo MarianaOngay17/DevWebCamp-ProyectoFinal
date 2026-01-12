@@ -9,6 +9,15 @@ Instalar dependencias
     npm install
     composer install
 
+Incluir webpack al proyecto
+
+    npm install webpack-stream
+
+Instalar swiper
+
+    npm install swiper    
+    npm i -D css-loader style-loader
+
 Base de Datos
 
     CREATE TABLE `usuarios` (
