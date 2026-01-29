@@ -10,6 +10,7 @@ use Controllers\EventosController;
 use Controllers\PaginasController;
 use Controllers\RegalosController;
 use Controllers\PonentesController;
+use Controllers\RegistroController;
 use Controllers\DashboardController;
 use Controllers\RegistradosController;
 
@@ -57,6 +58,14 @@ $router->post('/admin/eventos/eliminar', [EventosController::class, 'eliminar'])
 $router->get('/admin/registrados', [RegistradosController::class, 'index']);
 
 $router->get('/admin/regalos', [RegalosController::class, 'index']);
+
+//Registro de Usuarios
+$router->get('/finalizar-registro', [RegistroController::class, 'crear']);
+$router->post('/finalizar-registro/gratis', [RegistroController::class, 'gratis']);
+$router->post('/finalizar-registro/pagar', [RegistroController::class, 'pagar']);
+
+//Boleto virtual
+$router->get('/boleto', [RegistroController::class, 'boleto']);
 
 //API
 $router->get('/api/eventos-horarios', [APIEventos::class, 'index']);

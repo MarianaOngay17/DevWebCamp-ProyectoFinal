@@ -12,6 +12,9 @@
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
     <link rel="stylesheet" href="/build/css/app.css">
     <script src="https://unpkg.com/leaflet@1.8.0/dist/leaflet.js" integrity="sha512-BB3hKbKWOc9Ez/TAwyWxNXeoV9c1v6FIeYiBieIWkpLjauysF18NzgR1MBNBXf8/KABdlkX68nAhlwcDFLGPCQ==" crossorigin="" defer></script>  
+    <script 
+        src="https://www.paypal.com/sdk/js?client-id=BAAX3zkWgbhwVAZSdZPVW1UCY72mrflDGM8G_C5LQarqaQjbKgBVOtOC1LTtCbj2yaQZWDla9hfFc3VroI&components=hosted-buttons&disable-funding=venmo&currency=USD">
+    </script>
 </head>
 <body>
     <?php 
